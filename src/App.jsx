@@ -38,6 +38,18 @@ function App() {
               <button>+/-</button>
               <button>%</button>
               <button>/</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
+              <button>5</button>
             </div>
           </div>
         </div>
