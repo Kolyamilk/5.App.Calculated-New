@@ -1,4 +1,4 @@
-# App Calculated
+# App Calculated new
 
 ## Стек технологий
 - HTML/CSS
