@@ -24,7 +24,7 @@ main {
 }
 
 .content {
-    /* opacity: 0.5; */
+    /* opacity: 0.4; */
     width: 85%;
     height: 70%;
     margin-bottom: 20px;
@@ -70,8 +70,6 @@ main {
 .btnOrange {
     background-color: rgb(227, 145, 9);
     color: rgb(255, 255, 255);
-
-
 }
 
 .btnDarkGrey {
@@ -102,8 +100,13 @@ button.btn0 {
 
 }
 
+button:active {
+    background-color: rgba(255, 255, 255, 0.105);
+    opacity: 0.5;
+}
+
 button:hover {
-    opacity: 0.9;
+    opacity: 0.8;
     cursor: pointer;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgba(54, 54, 54, 0.63);
 }

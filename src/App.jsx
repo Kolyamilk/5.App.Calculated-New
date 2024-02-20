@@ -3,25 +3,27 @@ import './App.css'
 import Button from './Button'
 
 
-function App() {
+export default function App() {
   const [screen, setScreen] = useState([])
-
-  const newArr = [null, null, null, null, null, null, null, null, null, null]
-  const mas = [1, 2, 3]
-
-  const buttons = ['AC', '+/-', '%', '/', 'x', '-', '+', '=', 1, 1, 2, 3, 2, 2, 2, 3, 2, 8, 6]
+  const [mas, setMas] = useState([])
 
 
+
+
+  // const buttons = ['AC', '+/-', '%', '/', 'x', '-', '+', '=', 1, 1, 2, 3, 2, 2, 2, 3, 2, 8, 6]
 
 
 
   //Функция узнать на что мы нажали
-  function handleClick(type) {
-    setScreen(type)
-    if(type==='AC'){
-      clearDisplay()
-    }
-  }
+  // function handleClick(type) {
+
+  //   setScreen(mas)
+
+  //   if (type === 'AC') {
+  //     clearDisplay()
+  //   }
+
+  // }
   //функция добавляет нажатую кнопку в массив
   function addNewNumber() {
   }
@@ -56,35 +58,10 @@ function App() {
               <span>{screen}</span>
             </div>
             <div className="content-buttons">
-              {/* <button onClick={clearDisplay} className='btnLightGrey'>AC</button>
-              <button className='btnLightGrey' onClick={handleClick}>+/-</button>
-              <button className='btnLightGrey'>%</button>
-              <button className='btnOrange'>/</button>
-              <button className='btnDarkGrey'>7</button>
-              <button className='btnDarkGrey'>8</button>
-              <button className='btnDarkGrey'>9</button>
-              <button className='btnOrange'>x</button>
-              <button className='btnDarkGrey'>4</button>
-              <button className='btnDarkGrey'>5</button>s
-              <button className='btnDarkGrey'>6</button>
-              <button className='btnOrange'>-</button>
-              <button className='btnDarkGrey'>1</button>
-              <button className='btnDarkGrey'>2</button>
-              <button className='btnDarkGrey'>3</button>
-              <button className='btnOrange'>+</button>
-              <button className='btn0 btnDarkGrey'>0</button>
-              <button className='btnDarkGrey'>.</button>
-              <button className='btnOrange'>=</button> */}
-              <Button onClick={() => handleClick(1)}>1</Button>
-              <Button onClick={() => handleClick(2)}>2</Button>
-              <Button onClick={() => handleClick(3)}>3</Button>
-              <Button onClick={() => handleClick(4)}>4</Button>
-              <Button onClick={() => handleClick(5)}>5</Button>
-              <Button onClick={() => handleClick(6)}>6</Button>
-              <Button onClick={() => handleClick('AC')}>AC</Button>
 
+              <Button></Button>
 
-            </div>
+            </div>s
           </div>
         </div>
       </main>
@@ -94,4 +71,4 @@ function App() {
   )
 }
 
-export default App
+
