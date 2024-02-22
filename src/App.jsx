@@ -12,18 +12,6 @@ export default function App() {
 
   // const buttons = ['AC', '+/-', '%', '/', 'x', '-', '+', '=', 1, 1, 2, 3, 2, 2, 2, 3, 2, 8, 6]
 
-
-
-  //Функция узнать на что мы нажали
-  // function handleClick(type) {
-
-  //   setScreen(mas)
-
-  //   if (type === 'AC') {
-  //     clearDisplay()
-  //   }
-
-  // }
   //функция добавляет нажатую кнопку в массив
   function addNewNumber() {
   }
@@ -33,12 +21,14 @@ export default function App() {
     if (type === 'AC') {
       clearDisplay()
     }
-
   }
+
 
   //Проверка на ширину цифр на дисплее
   function checkNumLengthDisplay() {
-    console.log(screen.length);
+    if (screen.length >= 16) {
+      setScreen('Большая сумма  ')
+    }
 
   }
   checkNumLengthDisplay()
