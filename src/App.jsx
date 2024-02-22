@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Children, useState } from 'react'
 import './App.css'
 import Button from './Button'
 
@@ -28,25 +28,23 @@ export default function App() {
   function addNewNumber() {
   }
   //функция добавление текста на дисплей
-  function addNumDisplay() {
+  function addNumDisplay(type) {
+    setScreen(screen + type)
+    if (type === 'AC') {
+      clearDisplay()
+    }
+
   }
 
   //Проверка на ширину цифр на дисплее
   function checkNumLengthDisplay() {
-    mas.map((num) => {
-      for (let i = 0; i < mas.length; i++) {
-        if (i === 16) {
-          num = 'Большое число'
-          newArr.fill('')
-        }
-      }
-      newArr.push(num)
-    })
+    console.log(screen.length);
+
   }
   checkNumLengthDisplay()
   // ДОДЕЛАТЬ Функция очищает дисплей
   function clearDisplay() {
-    setScreen(null)
+    setScreen('')
   }
   return (
     <>
@@ -58,8 +56,25 @@ export default function App() {
               <span>{screen}</span>
             </div>
             <div className="content-buttons">
-
-              <Button></Button>
+              <Button onClick={() => addNumDisplay('AC')}>AC</Button>
+              <Button onClick={() => addNumDisplay('+/-')}>+/-</Button>
+              <Button onClick={() => addNumDisplay('%')}>%</Button>
+              <Button onClick={() => addNumDisplay('/')}>/</Button>
+              <Button onClick={() => addNumDisplay(7)}>7</Button>
+              <Button onClick={() => addNumDisplay(8)}>8</Button>
+              <Button onClick={() => addNumDisplay(9)}>9</Button>
+              <Button onClick={() => addNumDisplay('x')}>x</Button>
+              <Button onClick={() => addNumDisplay(4)}>4</Button>
+              <Button onClick={() => addNumDisplay(5)}>5</Button>
+              <Button onClick={() => addNumDisplay(6)}>6</Button>
+              <Button onClick={() => addNumDisplay('-')}>-</Button>
+              <Button onClick={() => addNumDisplay(1)}>1</Button>
+              <Button onClick={() => addNumDisplay(2)}>2</Button>
+              <Button onClick={() => addNumDisplay(3)}>3</Button>
+              <Button onClick={() => addNumDisplay('+')}>+</Button>
+              <Button onClick={() => addNumDisplay(0)}>0</Button>
+              <Button onClick={() => addNumDisplay('.')}>.</Button>
+              <Button onClick={() => addNumDisplay('=')}>=</Button>
 
             </div>s
           </div>
