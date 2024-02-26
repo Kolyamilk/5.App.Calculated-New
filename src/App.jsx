@@ -8,31 +8,66 @@ export default function App() {
   const [mas, setMas] = useState([])
 
 
+  const buttons = {
+    numbers: [
+      {
+        id: 1,
+        name: 1
+      },
+      {
+        id: 2,
+        name: 2
+      }
+    ],
+    operations: [
+      {
+        id: '+',
+        name: '+'
+      },
+      {
+        id: '=',
+        name: '='
+      },
+      {
+        id: 'AC',
+        name: 'AC'
+      },
 
-
-  // const buttons = ['AC', '+/-', '%', '/', 'x', '-', '+', '=', 1, 1, 2, 3, 2, 2, 2, 3, 2, 8, 6]
+    ]
+  }
+  //Функция операции
+  function startOperations(firstNum, operand, secondNum) {
+    let firstNumber = Number(firstNum)
+    let secondNumber = Number(secondNum)
+    const operation = operand
+    setScreen(screen + operation)
+    // console.log(firstNumber, operation, secondNumber);
+    if (operation === 'AC') {
+      clearDisplay()
+    } if (operation === '+') {
+      console.log('Первое число: ' + firstNumber);
+      console.log('Первое число: ' + secondNumber);
+    }
+  }
 
   //функция добавляет нажатую кнопку в массив
   function addNewNumber() {
   }
   //функция добавление текста на дисплей
   function addNumDisplay(type) {
+    console.log(type);
     setScreen(screen + type)
-    if (type === 'AC') {
-      clearDisplay()
-    }
   }
 
-
+  let randomID = Math.floor(Math.random() * 2000)
   //Проверка на ширину цифр на дисплее
   function checkNumLengthDisplay() {
-    if (screen.length >= 16) {
+    if (screen.length >= 20) {
       setScreen('Большая сумма  ')
     }
-
   }
   checkNumLengthDisplay()
-  // ДОДЕЛАТЬ Функция очищает дисплей
+  // ДОДЕЛАТЬ Функция очищает дисплейs
   function clearDisplay() {
     setScreen('')
   }
@@ -46,32 +81,18 @@ export default function App() {
               <span>{screen}</span>
             </div>
             <div className="content-buttons">
-              <Button onClick={() => addNumDisplay('AC')}>AC</Button>
-              <Button onClick={() => addNumDisplay('+/-')}>+/-</Button>
-              <Button onClick={() => addNumDisplay('%')}>%</Button>
-              <Button onClick={() => addNumDisplay('/')}>/</Button>
-              <Button onClick={() => addNumDisplay(7)}>7</Button>
-              <Button onClick={() => addNumDisplay(8)}>8</Button>
-              <Button onClick={() => addNumDisplay(9)}>9</Button>
-              <Button onClick={() => addNumDisplay('x')}>x</Button>
-              <Button onClick={() => addNumDisplay(4)}>4</Button>
-              <Button onClick={() => addNumDisplay(5)}>5</Button>
-              <Button onClick={() => addNumDisplay(6)}>6</Button>
-              <Button onClick={() => addNumDisplay('-')}>-</Button>
-              <Button onClick={() => addNumDisplay(1)}>1</Button>
-              <Button onClick={() => addNumDisplay(2)}>2</Button>
-              <Button onClick={() => addNumDisplay(3)}>3</Button>
-              <Button onClick={() => addNumDisplay('+')}>+</Button>
-              <Button onClick={() => addNumDisplay(0)}>0</Button>
-              <Button onClick={() => addNumDisplay('.')}>.</Button>
-              <Button onClick={() => addNumDisplay('=')}>=</Button>
-
-            </div>s
+              {[buttons.numbers.map(index => {
+                return <Button key={index.id} onClick={() => addNumDisplay(index.name)}>
+                  {index.name}
+                </Button >
+              })]}
+              {[buttons.operations.map(index => {
+                return <Button key={index.id} onClick={() => startOperations(screen, index.name, index.name)}>{index.name}</Button >
+              })]}
+            </div>
           </div>
         </div>
-      </main>
-
-
+      </main >s
     </>
   )
 }
