@@ -5,9 +5,18 @@ import Button from './Button'
 
 export default function App() {
   const [screen, setScreen] = useState([])
-  const [mas, setMas] = useState([])
+  const [first, setFirst] = useState([])
+  const [second, setSecond] = useState([])
 
+  let operation
 
+  function result(fisrt, second) {
+    if (operation = '+') {
+      console.log(fisrt);
+      setScreen('')
+      
+    }
+  }
   const buttons = {
     numbers: [
       {
@@ -36,30 +45,27 @@ export default function App() {
     ]
   }
   //Функция операции
-  function startOperations(firstNum, operand, secondNum) {
-    let firstNumber = Number(firstNum)
-    let secondNumber = Number(secondNum)
-    const operation = operand
+  function startOperations(firstNum, operand) {
+    const firstNumber = Number(firstNum)
+    operation = operand
     setScreen(screen + operation)
     // console.log(firstNumber, operation, secondNumber);
     if (operation === 'AC') {
       clearDisplay()
-    } if (operation === '+') {
-      console.log('Первое число: ' + firstNumber);
-      console.log('Первое число: ' + secondNumber);
-    }
-  }
+    } if (operation) {
+      result(firstNumber)
 
-  //функция добавляет нажатую кнопку в массив
-  function addNewNumber() {
+    }
+    if (operation === '=') {
+      console.log(firstNumber + 1);
+    }
   }
   //функция добавление текста на дисплей
   function addNumDisplay(type) {
-    console.log(type);
+    console.log('Первое число ' + first.join(''))
+    first.push(type)
     setScreen(screen + type)
   }
-
-  let randomID = Math.floor(Math.random() * 2000)
   //Проверка на ширину цифр на дисплее
   function checkNumLengthDisplay() {
     if (screen.length >= 20) {
@@ -70,6 +76,7 @@ export default function App() {
   // ДОДЕЛАТЬ Функция очищает дисплейs
   function clearDisplay() {
     setScreen('')
+    setFirst([])
   }
   return (
     <>
@@ -87,7 +94,7 @@ export default function App() {
                 </Button >
               })]}
               {[buttons.operations.map(index => {
-                return <Button key={index.id} onClick={() => startOperations(screen, index.name, index.name)}>{index.name}</Button >
+                return <Button key={index.id} onClick={() => startOperations(screen, index.name)}>{index.name}</Button >
               })]}
             </div>
           </div>
