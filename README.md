@@ -1,9 +1,10 @@
 # App Calculated new
 
-## Стек технологий
+## Technology Stack
 - HTML/CSS
-- JS/React.js
-- Git control version
+- JS + React.js
+- local development server Vite
+- Github, Git control version
 
 ### Последние обновления от 26.02.2024
 - Добавил вывод кнопок из отдельного массива
