@@ -53,7 +53,11 @@ export default function App() {
                 return <Button key={index.name} onClick={() => startOperations(index.name)}>{index.name}</Button >
               })]}
               {[storeButtons.numbers.map(index => {
-                return <Button key={index.name} onClick={() => addNumDisplay(index.name)}>
+                return <Button
+                  key={index.name}
+                  onClick={() => addNumDisplay(index.name)}
+                  className='btnOrange'
+                  >
                   {index.name}
                 </Button >
               })]}
