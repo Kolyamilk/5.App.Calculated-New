@@ -5,11 +5,15 @@ export default function Button({ children, onClick }) {
         if (children == 0) {
             return 'btn0 btnLightGrey'
         } else if (operationsButton) {
+            if (children == '=') {
+                return 'btnR btnOrange'
+            }
             return 'btnOrange'
         }
         else if (children == 'AC' || children == 'CE' || children == '%') {
             return 'btnLightGrey'
-        } else {
+        }
+        else {
             return 'btnDarkGrey'
         }
     }

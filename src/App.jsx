@@ -2,8 +2,12 @@ import { Children, useState } from 'react'
 import './App.css'
 import Button from './Button'
 import storeButtons from './storeButtons'
+
 export default function App() {
-  let [screen, setScreen] = useState([''])
+  const [screen, setScreen] = useState([''])
+  const [time, setTime] = useState(new Date())
+
+  setInterval(() => setTime(new Date()), 1000)
 
   //Функция операции
   function startOperations(operand) {
@@ -22,16 +26,16 @@ export default function App() {
   }
   //функция добавление текста на дисплей
   function addNumDisplay(type) {
-    let activeOperand = type == '*' || type == '=' || type == '+' || type == '/' || type == 'AC' || type == 'CE' || type == '-'
+    let activeOperand = type == '*' || type == '=' || type == '+' || type == '÷' || type == 'AC' || type == 'CE' || type == '-'
     if (activeOperand) {
       return startOperations(type)
 
     }
 
     setScreen(screen + type)
-   if (screen=='*'){
-    console.log('*');
-   }
+    if (screen == '*') {
+      console.log('*');
+    }
 
 
   }
@@ -51,7 +55,11 @@ export default function App() {
     <>
       <main>
         <div className="containerPhone">
+
           <div className="content">
+            <div className="time">
+              {time.toLocaleTimeString()}
+            </div>
             <div className="content-screen">
               <span>{screen}</span>
             </div>
