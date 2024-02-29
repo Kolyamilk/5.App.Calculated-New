@@ -2,7 +2,6 @@ import { Children, useState } from 'react'
 import './App.css'
 import Button from './Button'
 import storeButtons from './storeButtons'
-
 export default function App() {
   let [screen, setScreen] = useState([''])
 
@@ -11,7 +10,6 @@ export default function App() {
     setScreen(screen + operand)
     if (operand === 'AC') {
       clearDisplay()
-      console.log('AC');
     }
     if (operand === '=') {
       let sum = eval(screen)
@@ -19,13 +17,23 @@ export default function App() {
       setScreen(sum);
     }
     if (operand === 'CE' && !undefined) {
-      console.log(screen.type);
-      setScreen(screen.substring(0, screen.length - 1))
+      return setScreen(screen.substring(0, screen.length - 1))//error
     }
   }
   //функция добавление текста на дисплей
   function addNumDisplay(type) {
+    let activeOperand = type == '*' || type == '=' || type == '+' || type == '/' || type == 'AC' || type == 'CE' || type == '-'
+    if (activeOperand) {
+      return startOperations(type)
+
+    }
+
     setScreen(screen + type)
+   if (screen=='*'){
+    console.log('*');
+   }
+
+
   }
 
   //Проверка на ширину цифр на дисплее
@@ -34,7 +42,6 @@ export default function App() {
       setScreen('Большая сумма  ')
     }
   }
-
   checkNumLengthDisplay()
   // Функция очищает дисплей
   function clearDisplay() {
@@ -49,18 +56,11 @@ export default function App() {
               <span>{screen}</span>
             </div>
             <div className="content-buttons">
-              {[storeButtons.operations.map(index => {
-                return <Button key={index.name} onClick={() => startOperations(index.name)}>{index.name}</Button >
-              })]}
-              {[storeButtons.numbers.map(index => {
-                return <Button
-                  key={index.name}
-                  onClick={() => addNumDisplay(index.name)}
-                  className='btnOrange'
-                  >
-                  {index.name}
-                </Button >
-              })]}
+              <div className="btnOperation">
+                {[storeButtons.numbers.map(index => {
+                  return <Button key={index.name} onClick={() => addNumDisplay(index.name)}>{index.name}</Button >
+                })]}
+              </div>
             </div>
           </div>
         </div>

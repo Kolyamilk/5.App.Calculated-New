@@ -3,7 +3,7 @@ export default function Button({ children, onClick }) {
     let operationsButton = children == '+' || children == '-' || children == '/' || children == '*' || children == '='
     function getClassButtons() {
         if (children == 0) {
-            return 'btn0'
+            return 'btn0 btnLightGrey'
         } else if (operationsButton) {
             return 'btnOrange'
         }
